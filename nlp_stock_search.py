@@ -25,7 +25,7 @@ def get_stocks_from_bigquery(industry):
     query = """
     SELECT symbol, name 
     FROM `bigquery-public-data.financial_stock_data.stocks`
-    WHERE LOWER(industry) = LOWER(@industry)
+    WHERE industry = @industry
     """
     
     job_config = bigquery.QueryJobConfig(
